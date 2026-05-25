@@ -1,0 +1,12 @@
+venv/
+env/
+__pycache__/
+*.pyc
+.pytest_cache/
+.streamlit/
+.env
+.DS_Store
+.idea/
+.vscode/
+*.swp
+.vs/
