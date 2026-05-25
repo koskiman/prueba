@@ -1,40 +1,47 @@
-import streamlit as st
+ï»¿import streamlit as st
 import pandas as pd
 import numpy as np
 from utils import get_sample_data, calculate_statistics
 
 st.set_page_config(
     page_title="Streamlit Demo App",
-    page_icon="??",
-    layout="wide",
-    initial_sidebar_state="expanded"
+    page_icon="chart",
+    layout="wide"
 )
 
-st.title("?? Streamlit Demo Application")
-st.write("Bienvenido a esta aplicación de demostración de Streamlit")
+st.title("Streamlit Demo Application")
+st.write("Welcome to this Streamlit demonstration application")
 
-st.sidebar.title("?? Opciones")
+st.sidebar.title("Options")
 page = st.sidebar.radio(
-    "Selecciona una página:",
-    ["Inicio", "Datos y Gráficos", "Interactivos", "Acerca de"]
+    "Select a page:",
+    ["Home", "Data and Charts", "Interactive", "About"]
 )
 
-if page == "Inicio":
-    st.header("Inicio")
-    st.write("Esta es una aplicación de demostración de Streamlit")
+if page == "Home":
+    st.header("Home")
+    st.write("This is a Streamlit demonstration application")
 
-elif page == "Datos y Gráficos":
-    st.header("?? Datos y Gráficos")
+elif page == "Data and Charts":
+    st.header("Data and Charts")
     df = get_sample_data()
     st.dataframe(df)
     stats = calculate_statistics(df["valor"].tolist())
-    st.metric("Promedio", f"{stats['media']:.2f}")
+    st.metric("Average", f"{stats['media']:.2f}")
+    st.line_chart(df.set_index("mes")["valor"])
 
-elif page == "Interactivos":
-    st.header("??? Componentes Interactivos")
-    valor = st.slider("Selecciona un valor:", 0, 100, 50)
-    st.write(f"Valor: {valor}")
+elif page == "Interactive":
+    st.header("Interactive Components")
+    valor = st.slider("Select a value:", 0, 100, 50)
+    st.write(f"Selected value: {valor}")
+    
+    nombre = st.text_input("Enter your name:")
+    if nombre:
+        st.write(f"Hello, {nombre}!")
+    
+    if st.button("Click me"):
+        st.success("Button pressed!")
 
-elif page == "Acerca de":
-    st.header("?? Acerca de")
-    st.write("App de Streamlit")
+elif page == "About":
+    st.header("About")
+    st.write("Streamlit Demo App - Simple application demonstration")

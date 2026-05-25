@@ -1,22 +1,28 @@
-# Streamlit App Demo
+ï»¿# Streamlit App Demo
 
-Una aplicación simple de Streamlit para demostrar funcionalidades básicas.
+A simple Streamlit application for demonstrating basic functionality.
 
-## Características
+## Features
 
-- Interfaz interactiva con Streamlit
-- Visualización de datos
-- Componentes interactivos
-- Tests automatizados
+- Interactive interface with Streamlit
+- Data visualization
+- Interactive components
+- Automated tests
 
-## Instalación
+## Installation
 
+```bash
 pip install -r requirements.txt
+```
 
-## Uso
+## Usage
 
+```bash
 streamlit run app.py
+```
 
-## Licencia
+The application will open at http://localhost:8501
+
+## License
 
 MIT
